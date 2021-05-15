@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "685951760668",
+    "project_id": "ethereumnotifier-suas",
+    "storage_bucket": "ethereumnotifier-suas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685951760668:android:aa4a58ae643a0fe50da2d9",
+        "android_client_info": {
+          "package_name": "com.EthereumNotifier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685951760668-gulelv77mvlv50dgjde5q1lkjcs8ha46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5VFn6w2rSd_RA6xtxqBZQsUZ4M8kUzrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685951760668-gulelv77mvlv50dgjde5q1lkjcs8ha46.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "685951760668-5mhc7joo9h9h2f4jjuc5t93htdtokme4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.EthereumNotifier"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

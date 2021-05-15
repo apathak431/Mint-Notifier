@@ -3,12 +3,13 @@
     "name": "EthereumNotifier",
     "slug": "EthereumNotifier",
     "version": "1.0.0",
+    "sdkVersion": "40.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffffff",
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -20,10 +21,12 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.EthereumNotifier"
     },
     "web": {
       "favicon": "./assets/favicon.png"
