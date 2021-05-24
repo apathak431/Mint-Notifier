@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, Button, TextInput, StyleSheet } from "react-native";
-import { color } from "react-native-reanimated";
+import { View, Alert, TextInput, StyleSheet } from "react-native";
 import { signUpFunc } from "../api/firebaseMethods";
 import AppButton from "../components/AppButton";
 import AppHeading from "../components/AppHeading";
-import AppText from "../components/AppText";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
 
@@ -63,7 +61,7 @@ function SignUp({ navigation }) {
         />
         <AppButton
           style={styles.button}
-          title="Sign Up"
+          title="Get Started"
           onPress={handleSignUp}
         />
       </View>
@@ -88,8 +86,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     width: "100%",
     borderRadius: 25,
-    borderBottomWidth: 1,
-    color: color.black,
+    color: colors.black,
     backgroundColor: colors.white,
   },
   button: {
