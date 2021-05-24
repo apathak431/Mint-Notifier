@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, Button } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Button,
+  SafeAreaView,
+} from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
 function Point() {
   const [gwei, setgwei] = useState(0);
   const [transaction, settransaction] = useState("Fast");
   return (
-    <View>
+    <SafeAreaView>
       <Text>Point</Text>
       <Text>Notify Me!</Text>
       <Text>Let us know when to ping you</Text>
@@ -14,10 +21,10 @@ function Point() {
       <TextInput
         style={styles.input}
         onChangeText={(text) => setgwei(parseInt(text))}
-        value={gwei}
+        value={gwei.toString()}
       />
       <Text>Select Transaction Type:</Text>
-      <View>
+      {/* <View>
         <Picker
           selectedValue={transaction}
           style={{ height: 50 }}
@@ -26,9 +33,9 @@ function Point() {
           <Picker.Item label="Fast" value="Fast" />
           <Picker.Item label="Rapid" value="Rapid" />
         </Picker>
-      </View>
+      </View> */}
       <Button style={{ marginTop: 50 }} title="submit" />
-    </View>
+    </SafeAreaView>
   );
 }
 

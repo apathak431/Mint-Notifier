@@ -1,11 +1,14 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useContext } from "react";
+import { Button, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import AuthContext from "../auth/context";
 
 function Profile() {
+  const { user, setuser } = useContext(AuthContext);
   return (
-    <View>
+    <SafeAreaView>
       <Text>Profile</Text>
-    </View>
+      <Button title="Logout" onPress={() => setuser(null)} />
+    </SafeAreaView>
   );
 }
 

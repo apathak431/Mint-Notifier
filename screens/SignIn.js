@@ -1,10 +1,25 @@
-import React, { useState } from "react";
-import { View, Text, Button, TextInput, StyleSheet } from "react-native";
+import React, { useState, useContext } from "react";
+import { Text, View, TextInput, Button, StyleSheet } from "react-native";
+import { signInFunc } from "../api/firebaseMethods";
+import AuthContext from "../auth/context";
 
-function SignUp({ navigation }) {
-  const [username, setusername] = useState("");
+function SignIn({ navigation }) {
+  const authContext = useContext(AuthContext);
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+
+  const handleSignIn = () => {
+    if (!email) {
+      Alert.alert("Email field is required.");
+    } else if (!password) {
+      Alert.alert("Password field is required.");
+    } else {
+      authContext.setuser(signInFunc(email, password));
+      navigation.navigate("HomeNavigator");
+    }
+    setemail("");
+    setpassword("");
+  };
 
   return (
     <View
@@ -16,16 +31,11 @@ function SignUp({ navigation }) {
       }}
     >
       <Text>Create your account</Text>
-      <Text>Username</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={(text) => setusername(text)}
-        value={username}
-      />
       <Text>Email</Text>
       <TextInput
         style={styles.input}
         onChangeText={(text) => setemail(text)}
+        autoCapitalize="none"
         value={email}
       />
       <Text>Password</Text>
@@ -35,10 +45,7 @@ function SignUp({ navigation }) {
         onChangeText={(text) => setpassword(text)}
         value={password}
       />
-      <Button
-        title="Sign Up"
-        onPress={() => navigation.navigate("SignUpLanding")}
-      />
+      <Button title="Sign In" onPress={handleSignIn} />
     </View>
   );
 }
@@ -52,4 +59,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUp;
+export default SignIn;
