@@ -7,6 +7,7 @@ import Home from "../screens/Home";
 import Point from "../screens/Point";
 import Settings from "../screens/Settings";
 import Profile from "../screens/Profile";
+import NotificationScreen from "../screens/NotificationScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -29,7 +30,7 @@ function HomeNavigator() {
         <Tab.Navigator>
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="Point" component={Point} />
-            <Tab.Screen name="Settings" component={Settings} />
+            <Tab.Screen name="NotificationScreen" component={NotificationScreen} />
             <Tab.Screen name="Profile" component={Profile} />
         </Tab.Navigator>
     );
