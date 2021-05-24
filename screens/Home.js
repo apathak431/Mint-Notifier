@@ -104,11 +104,9 @@ function Home() {
                 .catch((err) => {
                     console.log(err);
                 });
-            if (data && Math.trunc(data.rapid / 10e8) > 60) {
+            if (data && Math.trunc(data.rapid / 10e8) > 40) {
                 console.log(data.rapid)
-
                 schedulePushNotification();
-
             }
         }, 8000);
         return () => clearInterval(intervalId);

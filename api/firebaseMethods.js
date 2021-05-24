@@ -12,8 +12,19 @@ export async function signUpFunc(email, password, notificationToken) {
       email: currentUser.email,
       notificationToken: notificationToken,
     });
-  } catch (err) {
-    Alert.alert("There is something wrong!!!!", err.message);
+  } catch (error) {
+    Alert.alert("Something went wrong!", error.message);
+  }
+}
+
+export async function updateNotificationToken(notificationToken, currentUser) {
+  try {
+    const db = firebase.firestore();
+    db.collection("userInfo").doc(currentUser.uid).update({
+      notificationToken: notificationToken,
+    });
+  } catch (error) {
+    Alert.alert("Something went wrong!", error.message);
   }
 }
 
@@ -21,15 +32,15 @@ export async function signInFunc(email, password) {
   try {
     await firebase.auth().signInWithEmailAndPassword(email, password);
     return firebase.auth().currentUser;
-  } catch (err) {
-    Alert.alert("There is something wrong!", err.message);
+  } catch (error) {
+    Alert.alert("Something went wrong!", error.message);
   }
 }
 
-export async function loggingOut() {
+export async function logOutFunc() {
   try {
     await firebase.auth().signOut();
-  } catch (err) {
-    Alert.alert("There is something wrong!", err.message);
+  } catch (error) {
+    Alert.alert("Something went wrong!", error.message);
   }
 }

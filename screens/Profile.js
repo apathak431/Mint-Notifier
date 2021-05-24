@@ -5,16 +5,23 @@ import Screen from "../components/Screen";
 import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
 import AppHeading from "../components/AppHeading";
+import logOutFunc from "../api/firebaseMethods";
 
 function Profile() {
   const { user, setuser } = useContext(AuthContext);
-  console.log();
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOutFunc();
+    setuser(null);
+  };
+
   return (
     <Screen>
       <View style={styles.container}>
         <AppHeading>User Profile</AppHeading>
         <AppText style={styles.heading}>{user._W.email}</AppText>
-        <AppButton title="Logout" onPress={() => setuser(null)} />
+        <AppButton title="LogOut" onPress={handleLogOut} />
       </View>
     </Screen>
   );

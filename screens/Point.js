@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, Button } from "react-native";
+import { View, Text, TextInput, StyleSheet, Button, Alert } from "react-native";
 import colors from "../config/colors";
 import { Picker } from "@react-native-picker/picker";
 import Screen from "../components/Screen";
 import AppText from "../components/AppText";
 import AppHeading from "../components/AppHeading";
+import RNPickerSelect from "react-native-picker-select";
+import AppButton from "../components/AppButton";
 
 function Point() {
   const [gwei, setgwei] = useState("");
@@ -16,26 +18,32 @@ function Point() {
         <AppText style={styles.subHeading}>
           Let us know when to ping you
         </AppText>
-        <AppText>What should be gas fee?</AppText>
+        <AppText style={styles.label}>What should be gas fee?</AppText>
         <TextInput
           style={styles.input}
           numeric
           keyboardType={"numeric"}
+          placeholder="Gas Fee"
           onChangeText={(text) => setgwei(text)}
           value={gwei}
         />
-        <Text>Select Transaction Type:</Text>
-        {/* <View>
-        <Picker
-          selectedValue={transaction}
-          style={{ height: 50 }}
-          onValueChange={(itemValue, itemIndex) => settransaction(itemValue)}
-        >
-          <Picker.Item label="Fast" value="Fast" />
-          <Picker.Item label="Rapid" value="Rapid" />
-        </Picker>
-      </View> */}
-        <Button style={{ marginTop: 50 }} title="submit" />
+        <AppText style={styles.label}>Select Transaction Type:</AppText>
+        <View style={styles.input}>
+          <RNPickerSelect
+            style={{ fontSize: 18, color: colors.black }}
+            onValueChange={(value) => console.log(value)}
+            items={[
+              { label: "Rapid", value: "Rapid" },
+              { label: "Fast", value: "Fast" },
+              { label: "Slow", value: "Slow" },
+              { label: "Standard", value: "Standard" },
+            ]}
+          />
+        </View>
+        <AppButton
+          title="submit"
+          onPress={() => Alert.alert("Notification Placed")}
+        />
       </View>
     </Screen>
   );
@@ -48,6 +56,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
+  },
+  label: {
+    textAlign: "left",
+    alignSelf: "baseline",
+    marginBottom: 10,
+    color: colors.primary,
+    fontWeight: "700",
   },
   input: {
     padding: 24,
