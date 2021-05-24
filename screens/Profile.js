@@ -5,11 +5,11 @@ import Screen from "../components/Screen";
 import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
 import AppHeading from "../components/AppHeading";
-import logOutFunc from "../api/firebaseMethods";
+import { logOutFunc } from "../api/firebaseMethods";
 
 function Profile() {
   const { user, setuser } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleLogOut = () => {
     logOutFunc();

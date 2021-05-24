@@ -146,12 +146,12 @@ function Home() {
                     </View>
                 )
                 }
-                <Button
+                {/* <Button
                     title="Press to schedule a notification"
                     onPress={async () => {
                         await schedulePushNotification();
                     }}
-                />
+                /> */}
             </View>
         </Screen>
     );

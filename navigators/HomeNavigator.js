@@ -2,12 +2,15 @@ import React, { useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as Notifications from 'expo-notifications';
 import * as Permissions from "expo-permissions";
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import Home from "../screens/Home";
 import Point from "../screens/Point";
 import Settings from "../screens/Settings";
 import Profile from "../screens/Profile";
 import NotificationScreen from "../screens/NotificationScreen";
+import { Colors } from "react-native/Libraries/NewAppScreen";
+import colors from "../config/colors";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,11 +30,14 @@ function HomeNavigator() {
     }
 
     return (
-        <Tab.Navigator>
-            <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="Point" component={Point} />
-            <Tab.Screen name="NotificationScreen" component={NotificationScreen} />
-            <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Navigator
+            tabBarOptions={{
+                showLabel: false,
+            }}>
+            <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: () => <MaterialCommunityIcons name="home" size={30} color={colors.primary} /> }} />
+            <Tab.Screen name="Point" component={Point} options={{ tabBarIcon: () => <MaterialCommunityIcons name="av-timer" size={30} color={colors.primary} /> }} />
+            {/* <Tab.Screen name="NotificationScreen" component={NotificationScreen} /> */}
+            <Tab.Screen name="Profile" component={Profile} options={{ tabBarIcon: () => <MaterialCommunityIcons name="account" size={30} color={colors.primary} /> }} />
         </Tab.Navigator>
     );
 }
