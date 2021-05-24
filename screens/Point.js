@@ -30,7 +30,8 @@ function Point() {
         <AppText style={styles.label}>Select Transaction Type:</AppText>
         <View style={styles.input}>
           <RNPickerSelect
-            style={{ fontSize: 18, color: colors.black }}
+            style={{ inputAndroid: { color: "black" } }}
+            useNativeAndroidPickerStyle={false}
             onValueChange={(value) => console.log(value)}
             items={[
               { label: "Rapid", value: "Rapid" },
