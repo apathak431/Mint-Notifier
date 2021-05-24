@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { View, TextInput, Button, StyleSheet } from "react-native";
+import { View, TextInput, Button, StyleSheet, Alert } from "react-native";
 import { signInFunc } from "../api/firebaseMethods";
 import AuthContext from "../auth/context";
 import colors from "../config/colors";

@@ -50,6 +50,7 @@ function Point() {
 }
 
 const styles = StyleSheet.create({
+  inputAndroid: { color: "black" },
   container: {
     flex: 1,
     display: "flex",
